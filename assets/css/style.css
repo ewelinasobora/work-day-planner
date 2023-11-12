@@ -1,3 +1,10 @@
+:root {
+  --gray: #9c9c9c;
+  --peach: #ff6961;
+  --dark-green: rgba(79, 104, 79, 0.702);
+}
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -15,10 +22,11 @@ textarea {
 
 header {
   text-align: center;
-  background-color: transparent;
+  background-color: #e28d5c;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-top: 15px solid black;
+  border-bottom: 15px solid black;
   padding: 60px;
 }
 
@@ -49,7 +57,7 @@ header {
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: var(--peach);
   color: white;
 }
 
@@ -69,4 +77,38 @@ header {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+#calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+#currentDay {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--dark-green);
+}
+
+#calendar-container {
+  display: grid;
+  grid-template-columns: 100px repeat(24, 1fr);
+}
+
+.calendar-hour {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.calendar-event {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#col {
+  border: 1px solid #ddd;
+  padding: 10px;
+  color: #000000;
 }
