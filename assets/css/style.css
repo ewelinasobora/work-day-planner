@@ -43,6 +43,7 @@ header {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  margin-right: auto;
 }
 
 .hour {
@@ -67,9 +68,11 @@ header {
 }
 
 .saveBtn {
+  text-align: center;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-top: 1px solid white;
   background-color: var(--dark-green);
   color: white;
 }
