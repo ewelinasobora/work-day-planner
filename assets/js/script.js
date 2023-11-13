@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   // function that creates the calendar
   function createCalendar() {
-    var table = $('<table>').addClass('table').appendTo(calendar);
+    var table = $('<table>').addClass('table-primary table-responsive').appendTo(calendar);
     // rows for each work hour
     workHours.forEach(hour => {
       var row = $('<tr>').appendTo(table);

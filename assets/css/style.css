@@ -70,7 +70,7 @@ header {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: var(--dark-green);
   color: white;
 }
 
@@ -81,34 +81,10 @@ header {
 
 #calendar-container {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
 }
 
 #currentDay {
   font-size: 1rem;
   font-weight: bold;
   color: var(--dark-green);
-}
-
-#calendar-container {
-  display: grid;
-  grid-template-columns: 100px repeat(24, 1fr);
-}
-
-.calendar-hour {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-.calendar-event {
-  background-color: #3498db;
-  color: #fff;
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-#col {
-  border: 1px solid #ddd;
-  padding: 10px;
-  color: #000000;
 }
