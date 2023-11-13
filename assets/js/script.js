@@ -27,6 +27,18 @@ $(document).ready(function () {
       } else if (currentHour24 < hour24) {
         description.addClass("future");
       }
+
+      // get saved events from local storage
+      let savedEvent = localStorage.getItem(hour);
+      if (savedEvent) {
+        description.children().val(savedEvent);
+      }
+
+      // save button click event
+      saveButton.on("click", function () {
+        let event = description.children().val();
+        localStorage.setItem(hour, event);
+      });
     });
   }
 
