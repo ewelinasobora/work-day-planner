@@ -7,9 +7,8 @@ $(document).ready(function () {
   let currentHour = today.format("h A");
   // function that creates the calendar
   function createCalendar() {
-
-
     let table = $('<table>').appendTo(calendar);
+    let messageContainer = $('<div>').attr('id', 'message-container').insertBefore(table);
     // rows for each work hour
     workHours.forEach(hour => {
       let hour24 = Number(moment(hour, ["h A"]).format("H"));
@@ -34,10 +33,16 @@ $(document).ready(function () {
         description.children().val(savedEvent);
       }
 
+
       // save button click event
       saveButton.on("click", function () {
         let event = description.children().val();
         localStorage.setItem(hour, event);
+        // display message that event was saved
+        let message = $('<p>').addClass('success').text('Event saved!').appendTo(messageContainer);
+        setTimeout(function() {
+          message.remove();
+        }, 2000);
       });
     });
   }
