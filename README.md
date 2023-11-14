@@ -2,7 +2,8 @@
 
 This is a daily planner application that allows users to save events for each hour of the day. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
-![Screenshot 2023-11-14 at 18 37 35](https://github.com/ewelinasobora/work-day-planner/assets/11948354/d12faa4b-932c-4913-a5c6-08b06761cc77)
+![Screenshot 2023-11-14 at 18 39 47](https://github.com/ewelinasobora/work-day-planner/assets/11948354/c3813c5f-7ce7-43b5-9d05-fd674a8b203f)
+
 
 ## Table of Contents
 
