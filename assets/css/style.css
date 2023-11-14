@@ -68,7 +68,7 @@ header {
 }
 
 .saveBtn {
-   text-align: center;
+  text-align: center;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -93,6 +93,7 @@ header {
 }
 
 #message-container {
+  display: flex;
   justify-content: center;
   align-items: center;
 }

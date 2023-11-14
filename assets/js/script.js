@@ -1,46 +1,45 @@
 $(document).ready(function () {
-  const workHours = ["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM"];
+  const workHours = ["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"];
   const calendar = $("#calendar-container");
   const currentDay = $("#currentDay");
-  let today = dayjs();
+  const today = dayjs();
   currentDay.text(today.format("dddd, D MMMM YYYY"));
-  let currentHour = today.format("h A");
+  const currentHour = today.hour();
+
   // function that creates the calendar
   function createCalendar() {
-    let table = $('<table>').appendTo(calendar);
-    let messageContainer = $('<div>').attr('id', 'message-container').insertBefore(table);
+    const table = $('<table>').appendTo(calendar);
+    const messageContainer = $('<div>').attr('id', 'message-container').insertBefore(table);
     // rows for each work hour
     workHours.forEach(hour => {
-      let hour24 = Number(moment(hour, ["h A"]).format("H"));
-      let currentHour24 = Number(moment(currentHour, ["h A"]).format("H"));
-      let row = $('<tr>').appendTo(table);
+      const hour24 = Number(moment(hour, ["h A"]).format("H"));
+      const row = $('<tr>').appendTo(table);
       // cells for Time, Event, and Save
-      let timeSlot = $('<td>').addClass("time-block hour").text(hour).appendTo(row);
-      let description = $('<td>').addClass("row description").append($('<textarea>')).appendTo(row);
-      let saveButton = $('<td>').addClass("saveBtn").appendTo(row).append($('<button>').addClass("btn").text("Save"));
+      $('<td>').addClass("time-block hour").text(hour).appendTo(row);
+      const description = $('<td>').addClass("row description").append($('<textarea>')).appendTo(row);
+      const saveButton = $('<td>').addClass("saveBtn").appendTo(row).append($('<button>').addClass("btn").text("Save"));
 
-      if (currentHour24 === hour24) {
+      if (currentHour === hour24) {
         description.addClass("present");
-      } else if (currentHour24 > hour24) {
+      } else if (currentHour > hour24) {
         description.addClass("past");
-      } else if (currentHour24 < hour24) {
+      } else if (currentHour < hour24) {
         description.addClass("future");
       }
 
       // get saved events from local storage
-      let savedEvent = localStorage.getItem(hour);
+      const savedEvent = localStorage.getItem(hour);
       if (savedEvent) {
         description.children().val(savedEvent);
       }
 
-
       // save button click event
       saveButton.on("click", function () {
-        let event = description.children().val();
+        const event = description.children().val();
         localStorage.setItem(hour, event);
         // display message that event was saved
-        let message = $('<p>').addClass('success').text('Event saved!').appendTo(messageContainer);
-        setTimeout(function() {
+        const message = $('<p>').addClass('success').text("Appointment added to Local Storage!").appendTo(messageContainer);
+        setTimeout(function () {
           message.remove();
         }, 2000);
       });
